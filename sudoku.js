@@ -17,7 +17,7 @@ function solve(read()) {
         for (let val = 1; val <= 9; val++) {
             if (isNotInRow(arr, row, val) && isNotInCol(arr, col, val)) {
                 arr[i] = val;
-                if (solveSudoku(arr)) {
+                if (solve(arr)) {
                     return true;
                 }
                 arr[i] = 0;
