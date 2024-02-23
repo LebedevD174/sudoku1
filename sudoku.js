@@ -2,11 +2,6 @@ const {read} = require('./read')
 const {isNotInCol, isNotInRow } = require('./isSolved')
 
 function solve(arr) {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции read.
-   * Возвращает игровое поле после попытки его решить.
-   */
-  
   for (let i = 0; i < 81; i++) {
     if (arr[i] === 0) {
         const row = Math.floor(i / 9);
@@ -31,11 +26,6 @@ const arr = read();
 solve(arr)
 prettyBoard(arr)
 function prettyBoard() {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции solve.
-   * Выводит в консоль/терминал судоку.
-   * Подумай, как симпатичнее его вывести.
-   */
   for (let i = 0; i < 9; i++) {
     let row = '';
     for (let j = 0; j < 9; j++) {
