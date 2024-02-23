@@ -1,14 +1,12 @@
-function read() {
-  /**
-   * Прочесть файл puzzles.txt в кодировке 'utf-8' и вернуть эти данные из функции
-   */
-}
+const {read} = require('./read')
+const {isNotInCol, isNotInRow } = require('./isSolved')
 
-function solve(read()) {
+function solve(arr) {
   /**
    * Принимает игровое поле в том формате, в котором его вернули из функции read.
    * Возвращает игровое поле после попытки его решить.
    */
+  
   for (let i = 0; i < 81; i++) {
     if (arr[i] === 0) {
         const row = Math.floor(i / 9);
@@ -29,18 +27,28 @@ function solve(read()) {
 return true;
 };
 
-
-function isSolved() {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции solve.
-   * Возвращает булевое значение — решено это игровое поле или нет.
-   */
-}
-
+const arr = read();
+solve(arr)
+prettyBoard(arr)
 function prettyBoard() {
   /**
    * Принимает игровое поле в том формате, в котором его вернули из функции solve.
    * Выводит в консоль/терминал судоку.
    * Подумай, как симпатичнее его вывести.
    */
+  for (let i = 0; i < 9; i++) {
+    let row = '';
+    for (let j = 0; j < 9; j++) {
+        row += arr[i * 9 + j] + ' ';
+        if ((j + 1) % 3 === 0) {
+            row += '| ';
+        }
+    }
+    console.log(row.trim());
+    if ((i + 1) % 3 === 0 && i !== 8) {
+        console.log('---------------------');
+    }
 }
+}
+
+
